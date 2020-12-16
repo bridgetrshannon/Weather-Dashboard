@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 const api = {
   key: "c1d5301af636b9b6f1c8a7606fd79214",
   base: "https://api.openweathermap.org/data/2.5/",
 };
 
 function App() {
+  const [query, setQuery] = useState("");
+  const [weather, setWeather] = useState({});
+
+  const search = (event) => {
+    if (event.key === "Enter") {
+      fetch(`${api.base}weather?q=${query}&appid=${api.key}`)
+        .then((res) => res.json())
+        .then((result) => {
+          setWeather(result);
+          setQuery("");
+          console.log(result);
+        });
+    }
+  };
+
   const dateBuilder = (d) => {
     let months = [
       "January",
@@ -41,7 +56,14 @@ function App() {
     <div className="app">
       <main>
         <div className="search-box">
-          <input type="text" className="search-bar" placeholder="Search..." />
+          <input
+            type="text"
+            className="search-bar"
+            placeholder="Search..."
+            onChange={(event) => setQuery(event.target.value)}
+            value={query}
+            onKeyPress={search}
+          />
         </div>
         <div className="location-box">
           <div className="location">New York City, US</div>
