@@ -51,11 +51,19 @@ function App() {
     let month = months[d.getMonth()];
     let year = d.getFullYear();
 
-    return `${day} ${date} ${month} ${year}`;
+    return `${day}, ${month} ${date}, ${year}`;
   };
 
   return (
-    <div className="app">
+    <div
+      className={
+        typeof weather.main != "undefined"
+          ? weather.main.temp > 69
+            ? "app warm"
+            : "app"
+          : "app"
+      }
+    >
       <main>
         <div className="search-box">
           <input
