@@ -12,7 +12,7 @@ function App() {
 
   const search = (event) => {
     if (event.key === "Enter") {
-      fetch(`${api.base}weather?q=${query}&appid=${API_KEY}`)
+      fetch(`${api.base}weather?q=${query}&units=imperial&appid=${API_KEY}`)
         .then((res) => res.json())
         .then((result) => {
           setWeather(result);
@@ -67,14 +67,22 @@ function App() {
             onKeyPress={search}
           />
         </div>
-        <div className="location-box">
-          <div className="location">New York City, US</div>
-          <div className="date">{dateBuilder(new Date())}</div>
-        </div>
-        <div className="weather-box">
-          <div className="temp">75°</div>
-          <div className="weather">Sunny</div>
-        </div>
+        {typeof weather.main != "undefined" ? (
+          <div>
+            <div className="location-box">
+              <div className="location">
+                {weather.name}, {weather.sys.country}
+              </div>
+              <div className="date">{dateBuilder(new Date())}</div>
+            </div>
+            <div className="weather-box">
+              <div className="temp">{Math.round(weather.main.temp)}°</div>
+              <p className="weather">{weather.weather[0].description}</p>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
       </main>
     </div>
   );
