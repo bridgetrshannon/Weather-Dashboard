@@ -12,11 +12,7 @@ function App() {
 
   const search = (event) => {
     if (event.key === "Enter") {
-      fetch(
-        `${"https://cors-anywhere.herokuapp.com/"}${
-          api.base
-        }weather?q=${query}&units=imperial&appid=${API_KEY}`
-      )
+      fetch(`${api.base}weather?q=${query}&units=imperial&appid=${API_KEY}`)
         .then((res) => res.json())
         .then((result) => {
           setWeather(result);

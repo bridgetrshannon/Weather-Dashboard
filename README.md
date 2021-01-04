@@ -33,7 +33,7 @@ _API_
 
 ## Usage
 
-- [Heroku](comingSoon)
+- [Heroku](https://weatherly-dashboard.herokuapp.com/)
 - [GitHub](https://github.com/bridgetrshannon/Weather-Dashboard)
 
 ```
