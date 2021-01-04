@@ -2,7 +2,7 @@
 
 ## Description
 
-Using React, the Weatherly Dashboard app allows for users to search for the current weather conditions in any city worldwide.
+Using React, the Weatherly Dashboard app allows for users to search for the current weather conditions in any city, worldwide.
 
 ## Table of Contents
 
