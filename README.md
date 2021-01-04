@@ -27,9 +27,9 @@ _API_
   - The `temperature` and `weather conditions` are displayed
   - If a user searches for a city with current `temperature` above 70°, the background will reflect warm weather, below 70° reflects colder weather.
 
-<img alt="coldWeather" class="border-radius" src="./client/public/images/coldWeather.png">
+<img alt="coldWeather" float="left" class="border-radius" src="./src/assets/coldWeather.png" height="400px">
 
-<img alt="warmWeather" class="border-radius" src="./client/public/images/warmWeather.png">
+<img alt="warmWeather" float="left" class="border-radius" src="./src/assets/warmWeather.png" height="400px">
 
 ## Usage
 
